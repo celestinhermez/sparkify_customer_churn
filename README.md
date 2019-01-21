@@ -1,10 +1,10 @@
 # Predicting Customer Churn
 
-The goal of this repository is to show an example of predicting customer churn with Spark.
+The goal of this repository is to show how we can predict customer churn with Spark.
 Although we are using Spark in local mode here, and technically the data could be 
 analyzed on a single machine, we process the data and build the model with Spark in order
 to create an extensible framework. The analysis conducted here could scale to much
-bigger datasets, provided the code be deployed on a cluster capable of handle the 
+bigger datasets, provided the code be deployed on a cluster capable of handling the 
 computations necessary. 
 
 Sparkify is an imaginary music app company, and we use a small subset of their log
@@ -40,17 +40,17 @@ F1 score because we have already adjusted for the class imbalance, and as such t
 is less of a disconnect between accuracy and F1 score.
 
 After hyperparameter tuning, we have a model which has ?? accuracy on the test set,
-with a F1 score of ??. This means we are not overly predicting one of the classes and
+with a F1 score of ??. This means we are not disproportionately predicting one of the classes and
 have a good balance between precision and recall. Interestingly, looking at the coefficients
 we conclude that ???. Getting this insight is crucial for Sparkify, because they can
 target these users at risk with special offers (discounts, personalized messages) to try  
 and mitigate the churn which is likely to happen. Internally, this could be automated
-by setting up automated alerts once users hit certain thresholds on ?? variable for instance.
+by setting up alerts once users hit certain thresholds on ?? variable for instance.
 
 ## Possible Improvements
 
 This analysis would gain from leveraging a larger dataset and being deployed on a cluster.
-Grid search is a particularly expensive operation, but with larger resources and more time
+Grid search is a particularly computationally expensive operation, but with larger resources and more time
 a more extensive search could be conducted to further tune the model and likely improve
 overall accuracy.
 
@@ -58,7 +58,9 @@ Moreover, this model should not be static but run somewhat regularly as user beh
 and the consumer base evolve. It is important not to rely on an outdated model for such
 an important aspect of the business.
 
-Finally, some A/B tests could be set up to examine the impact of this model. One
-possibility would be to find users identified as potential churners, split them into
-a control and treatment group, assign some "churn-mitigating" action and compare their 
-churn rates. 
+Finally, some A/B tests could be set up to examine the insights of this model, 
+in particular the resulting mitigating actions taken. One possibility would be 
+to find users identified as potential churners, split them into
+a control and treatment group, assign some "churn-mitigating" treatment and compare their 
+churn rates through statistical hypothesis testing. This approach would be a rigorous
+follow-up to this model. 

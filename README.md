@@ -17,7 +17,9 @@ the results can be found in this blog post on Medium (link).
 It contains information about 226 distinct users, with actions as detailed as giving
 a thumbs up to a song or changing the settings of the account
 * **Sparkify.ipynb**: this is the Spark notebook which contains all the code for this 
-analysis
+analysis. In order to run it, `pyspark`, `pandas`, `matplotlib`, `seaborn` and
+`datetime` have to be installed
+* **Sparkify.html**: an HTML version of the notebook
 
 ## Analysis
 

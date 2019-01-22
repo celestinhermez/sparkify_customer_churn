@@ -35,24 +35,26 @@ We then test out various classification models (`LogisticRegression`, `RandomFor
 we choose to tune a logistic regression model further through a `CrossValidator` 
 performing the GridSearch algorithm on 3 folds, with the accuracy as the optimization
 metric. We choose to tune the logistic regression because of the interpretability of 
-its coefficients. In addition, our optimization metric is the accuracy rather than the
-F1 score because we have already adjusted for the class imbalance, and as such there
-is less of a disconnect between accuracy and F1 score.
+its coefficients. 
 
-After hyperparameter tuning, we have a model which has ?? accuracy on the test set,
-with a F1 score of ??. This means we are not disproportionately predicting one of the classes and
-have a good balance between precision and recall. Interestingly, looking at the coefficients
-we conclude that ???. Getting this insight is crucial for Sparkify, because they can
+After hyperparameter tuning, we have a model which has 73% accuracy on the test set,
+with a F1 score of 0.7. This means we are not disproportionately predicting one of the classes and
+have a good balance between precision and recall. Interestingly, there is no improvement
+after hyperparameter tuning through Grid Search, most likely due to the small size
+of our train set (191 users). 
+Examining feature importance, we conclude that both static features (such as the state
+or the registration month) as well as on-platform behaviors (adding a friend) matter
+when making a prediction. Getting this insight is crucial for Sparkify, because they can
 target these users at risk with special offers (discounts, personalized messages) to try  
 and mitigate the churn which is likely to happen. Internally, this could be automated
-by setting up alerts once users hit certain thresholds on ?? variable for instance.
+by running the model regularly (every day/week) and flagging users at risk.
 
 ## Possible Improvements
 
 This analysis would gain from leveraging a larger dataset and being deployed on a cluster.
 Grid search is a particularly computationally expensive operation, but with larger resources and more time
-a more extensive search could be conducted to further tune the model and likely improve
-overall accuracy.
+a more extensive search over a larger dataset and hyperparameter space
+could be conducted to further tune the model and likely improve overall accuracy.
 
 Moreover, this model should not be static but run somewhat regularly as user behaviors
 and the consumer base evolve. It is important not to rely on an outdated model for such

@@ -9,7 +9,7 @@ computations necessary.
 
 Sparkify is an imaginary music app company, and we use a small subset of their log
 data to try and predict churn. More context on this analysis and interpretation of
-the results can be found in this blog post on Medium (link).
+the results can be found in [this blog post on Medium](https://medium.com/@celestinhermez/predicting-customer-churn-with-spark-4d093907b2dc).
 
 ## File Structure
 
@@ -20,6 +20,7 @@ a thumbs up to a song or changing the settings of the account
 analysis. In order to run it, `pyspark`, `pandas`, `matplotlib`, `seaborn` and
 `datetime` have to be installed
 * **Sparkify.html**: an HTML version of the notebook
+* **images**: the three png files are the graphs included in the Medium blog post
 
 ## Analysis
 
